@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
 
-    //设置时段控制的参数 //fff
+    //设置时段控制的参数
     ui->TimeControlTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->TimeControlTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
     ui->TimeControlTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
@@ -48,24 +48,110 @@ MainWindow::MainWindow(QWidget *parent)
     ui->FTimeControlTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->FTimeControlTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    //当前报警数据表格
-    ui->CurrentWarnTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->CurrentWarnTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
-    ui->CurrentWarnTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
-    ui->CurrentWarnTable->setAlternatingRowColors(true);
-    ui->CurrentWarnTable->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->CurrentWarnTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    //设置PCS工作参数
+    ui->PCSWorkIndexTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->PCSWorkIndexTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->PCSWorkIndexTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->PCSWorkIndexTable->setAlternatingRowColors(true);
+    ui->PCSWorkIndexTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->PCSWorkIndexTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
     //当前报警数据表格
- /*   ui->CurrentWarnTable2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    ui->CurrentWarnTable2->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
-    ui->CurrentWarnTable2->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");    */   //设置表头字体格式
-    //ui->CurrentWarnTable2->setAlternatingRowColors(true);
-//    ui->CurrentWarnTable2->setSelectionBehavior(QAbstractItemView::SelectRows);
-//    ui->CurrentWarnTable2->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->BMSWorkIndexTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->BMSWorkIndexTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->BMSWorkIndexTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->BMSWorkIndexTable->setAlternatingRowColors(true);
+    ui->BMSWorkIndexTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->BMSWorkIndexTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //系统防护工作参数空调
+    ui->AirConditionTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->AirConditionTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->AirConditionTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->AirConditionTable->setAlternatingRowColors(true);
+    ui->AirConditionTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->AirConditionTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //系统防护工作参数空调1
+    ui->AirCondition_1_Table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->AirCondition_1_Table->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->AirCondition_1_Table->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->AirCondition_1_Table->setAlternatingRowColors(true);
+    ui->AirCondition_1_Table->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->AirCondition_1_Table->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //系统防护工作参数温湿度器
+    ui->ThermoHygroMeterTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->ThermoHygroMeterTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->ThermoHygroMeterTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->ThermoHygroMeterTable->setAlternatingRowColors(true);
+    ui->ThermoHygroMeterTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->ThermoHygroMeterTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //系统防护工作参数空调1
+    ui->PressureModuleTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->PressureModuleTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->PressureModuleTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->PressureModuleTable->setAlternatingRowColors(true);
+    ui->PressureModuleTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->PressureModuleTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //系统防护工作参数空调1
+    ui->Grid_sideMetersTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->Grid_sideMetersTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->Grid_sideMetersTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->Grid_sideMetersTable->setAlternatingRowColors(true);
+    ui->Grid_sideMetersTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->Grid_sideMetersTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //STS基本参数
+    ui->STSIndexTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->STSIndexTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->STSIndexTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->STSIndexTable->setAlternatingRowColors(true);
+    ui->STSIndexTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->STSIndexTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //STS功率参数
+    ui->STSIndexTable_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->STSIndexTable_2->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->STSIndexTable_2->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->STSIndexTable_2->setAlternatingRowColors(true);
+    ui->STSIndexTable_2->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->STSIndexTable_2->setSelectionMode(QAbstractItemView::SingleSelection);
 
 
+    //DCDC基本参数
+    ui->DCDCIndexTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->DCDCIndexTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->DCDCIndexTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->DCDCIndexTable->setAlternatingRowColors(true);
+    ui->DCDCIndexTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->DCDCIndexTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
+    //MPPT基本参数
+    ui->MPPTIndexTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->MPPTIndexTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->MPPTIndexTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->MPPTIndexTable->setAlternatingRowColors(true);
+    ui->MPPTIndexTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->MPPTIndexTable->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //当前报警
+    ui->CurrentWarnTable_2->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->CurrentWarnTable_2->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->CurrentWarnTable_2->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->CurrentWarnTable_2->setAlternatingRowColors(true);
+    ui->CurrentWarnTable_2->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->CurrentWarnTable_2->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    //历史报警
+    ui->HistoryWarnTable->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->HistoryWarnTable->horizontalHeader()->setMinimumHeight(50);            //设置表头行高
+    ui->HistoryWarnTable->horizontalHeader()->setStyleSheet("QHeaderView::section{background:skyblue;color:black;font-weight:bold;}");       //设置表头字体格式
+    ui->HistoryWarnTable->setAlternatingRowColors(true);
+    ui->HistoryWarnTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    ui->HistoryWarnTable->setSelectionMode(QAbstractItemView::SingleSelection);
 
 
     openTable();//打开数据库文件
@@ -98,11 +184,40 @@ void MainWindow::openTable()
     FPControlQryMdl = new CustomSqlQueryModel(this);
     CurrentWarnQryModel = new CustomSqlQueryModel(this);
     CurrentWarnQryModel2 = new CustomSqlQueryModel(this);
+    PCSWorkIndexModel = new CustomSqlQueryModel(this);
+    BMSWorkIndexModel=new CustomSqlQueryModel(this);
+    SPWorkAirConditionModel=new CustomSqlQueryModel(this);
+    SPWorkAirConditionModel1=new CustomSqlQueryModel(this);
+    SPWorkThermoHygroMeterModel=new CustomSqlQueryModel(this);
+    SPWorkPressureModuleModel=new CustomSqlQueryModel(this);
+    SPWorkGrid_sideMetersModel=new CustomSqlQueryModel(this);
+    STSIndexModel=new CustomSqlQueryModel(this);
+    STSIndex1Model=new CustomSqlQueryModel(this);
+    DCDCIndexModel=new CustomSqlQueryModel(this);
+    MPPTIndexModel=new CustomSqlQueryModel(this);
+    CurrentWarnModel=new CustomSqlQueryModel(this);
+    HistoryWarnModel=new CustomSqlQueryModel(this);
+
 
     qryModel->setQuery("SELECT NumberList, StartTime, EndTime, Power, NumberList2, StartTime2, EndTime2, Power2 FROM PeriodControl");
     FPControlQryMdl->setQuery("SELECT TimePeriod, Power, TimePeriod2, Power2, TimePeriod3, Power3, TimePeriod4, Power4 FROM FPeriodControl");
     CurrentWarnQryModel->setQuery("SELECT Data, Time, Describe FROM CurrentWarnTable");
     CurrentWarnQryModel2->setQuery("SELECT Describe FROM CurrentWarnTable");
+    PCSWorkIndexModel->setQuery("SELECT * FROM PCSWorkIndex");
+    BMSWorkIndexModel->setQuery("SELECT * FROM BMSWorkIndex");
+    SPWorkAirConditionModel->setQuery("SELECT * FROM SPAirCondition");
+    SPWorkAirConditionModel1->setQuery("SELECT * FROM SPAirCondition1");
+    SPWorkThermoHygroMeterModel->setQuery("SELECT * FROM SPWorkThermoHygroMeter");
+    SPWorkPressureModuleModel->setQuery("SELECT * FROM SPworkPressureModule");
+    SPWorkGrid_sideMetersModel->setQuery("SELECT * FROM SPWorkGrid_sideMeters");
+    STSIndexModel->setQuery("SELECT * FROM STSIndex");
+    STSIndex1Model->setQuery("SELECT * FROM STSIndex1");
+    DCDCIndexModel->setQuery("SELECT * FROM DCDCIndex");
+    MPPTIndexModel->setQuery("SELECT * FROM MPPTIndex");
+    CurrentWarnModel->setQuery("SELECT * FROM CurrentWarn");
+    HistoryWarnModel->setQuery("SELECT * FROM HistoryWarn");
+
+
     //时段控制数据库模型
     qryModel->setHeaderData(0,Qt::Horizontal,"序号");
     qryModel->setHeaderData(1,Qt::Horizontal,"起始时分");
@@ -128,6 +243,89 @@ void MainWindow::openTable()
     CurrentWarnQryModel->setHeaderData(1,Qt::Horizontal,"时间");
     CurrentWarnQryModel->setHeaderData(2,Qt::Horizontal,"报警描述");
 
+    //PCS工作参数数据库模型
+    PCSWorkIndexModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    PCSWorkIndexModel->setHeaderData(1,Qt::Horizontal,"数据");
+    PCSWorkIndexModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    PCSWorkIndexModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+    //PCS保护参数数据库模型
+
+    BMSWorkIndexModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    BMSWorkIndexModel->setHeaderData(1,Qt::Horizontal,"数据");
+    BMSWorkIndexModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    BMSWorkIndexModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+    //系统防护工作参数空调
+    SPWorkAirConditionModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    SPWorkAirConditionModel->setHeaderData(1,Qt::Horizontal,"数据");
+    SPWorkAirConditionModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    SPWorkAirConditionModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+
+
+    //系统防护工作参数空调1
+    SPWorkAirConditionModel1->setHeaderData(0,Qt::Horizontal,"工作参数");
+    SPWorkAirConditionModel1->setHeaderData(1,Qt::Horizontal,"数据");
+    SPWorkAirConditionModel1->setHeaderData(2,Qt::Horizontal,"工作参数");
+    SPWorkAirConditionModel1->setHeaderData(3,Qt::Horizontal,"数据");
+
+    //系统防护工作参数温湿度器
+    SPWorkThermoHygroMeterModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    SPWorkThermoHygroMeterModel->setHeaderData(1,Qt::Horizontal,"数据");
+    SPWorkThermoHygroMeterModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    SPWorkThermoHygroMeterModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+    //系统防护工作参数均压模块
+    SPWorkPressureModuleModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    SPWorkPressureModuleModel->setHeaderData(1,Qt::Horizontal,"数据");
+    SPWorkPressureModuleModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    SPWorkPressureModuleModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+    //系统防护工作参数电网侧电表
+    SPWorkGrid_sideMetersModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    SPWorkGrid_sideMetersModel->setHeaderData(1,Qt::Horizontal,"数据");
+    SPWorkGrid_sideMetersModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    SPWorkGrid_sideMetersModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+
+    //STS工作参数
+    STSIndexModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    STSIndexModel->setHeaderData(1,Qt::Horizontal,"数据");
+    STSIndexModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    STSIndexModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+
+    //STS工作参数1
+    STSIndex1Model->setHeaderData(0,Qt::Horizontal,"工作参数");
+    STSIndex1Model->setHeaderData(1,Qt::Horizontal,"数据");
+    STSIndex1Model->setHeaderData(2,Qt::Horizontal,"工作参数");
+    STSIndex1Model->setHeaderData(3,Qt::Horizontal,"数据");
+
+    //DCDC工作参数
+    DCDCIndexModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    DCDCIndexModel->setHeaderData(1,Qt::Horizontal,"数据");
+    DCDCIndexModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    DCDCIndexModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+
+    //MPPT工作参数
+    MPPTIndexModel->setHeaderData(0,Qt::Horizontal,"工作参数");
+    MPPTIndexModel->setHeaderData(1,Qt::Horizontal,"数据");
+    MPPTIndexModel->setHeaderData(2,Qt::Horizontal,"工作参数");
+    MPPTIndexModel->setHeaderData(3,Qt::Horizontal,"数据");
+
+    //当前报警数据库模型表头设定
+    CurrentWarnModel->setHeaderData(0,Qt::Horizontal,"日期");
+    CurrentWarnModel->setHeaderData(1,Qt::Horizontal,"时间");
+    CurrentWarnModel->setHeaderData(2,Qt::Horizontal,"报警描述");
+
+
+    //历史报警数据库模型表头设定
+    HistoryWarnModel->setHeaderData(0,Qt::Horizontal,"日期");
+    HistoryWarnModel->setHeaderData(1,Qt::Horizontal,"时间");
+    HistoryWarnModel->setHeaderData(2,Qt::Horizontal,"报警描述");
+    HistoryWarnModel->setHeaderData(3,Qt::Horizontal,"结束时间");
     //桌面当前报警数据表格
 //    CurrentWarnQryModel2->setHeaderData(1,Qt::Horizontal,"时间");
 //    CurrentWarnQryModel2->setHeaderData(2,Qt::Horizontal,"报警描述");
@@ -136,8 +334,21 @@ void MainWindow::openTable()
     ui->FTimeControlTable->setModel(FPControlQryMdl);
     ui->TimeControlTable->setModel(qryModel);
     ui->CurrentWarnTable->setModel(CurrentWarnQryModel);
-    ui->CurrentWarnTable2->setModel(CurrentWarnQryModel2);
+//    ui->CurrentWarnTable2->setModel(CurrentWarnQryModel2);
+    ui->PCSWorkIndexTable->setModel(PCSWorkIndexModel);
+    ui->BMSWorkIndexTable->setModel(BMSWorkIndexModel);
+    ui->AirConditionTable->setModel(SPWorkAirConditionModel);
+    ui->AirCondition_1_Table->setModel(SPWorkAirConditionModel1);
+    ui->ThermoHygroMeterTable->setModel(SPWorkThermoHygroMeterModel);
 
+    ui->PressureModuleTable->setModel(SPWorkPressureModuleModel);
+    ui->Grid_sideMetersTable->setModel(SPWorkGrid_sideMetersModel);
+    ui->STSIndexTable->setModel(STSIndexModel);
+    ui->STSIndexTable_2->setModel(STSIndex1Model);
+    ui->DCDCIndexTable->setModel(DCDCIndexModel);
+    ui->MPPTIndexTable->setModel(MPPTIndexModel);
+    ui->CurrentWarnTable_2->setModel(CurrentWarnModel);
+    ui->HistoryWarnTable->setModel(HistoryWarnModel);
 }
 
 
@@ -432,22 +643,6 @@ void MainWindow::on_Battery_toggled(bool checked)
     }
 }
 
-void MainWindow::on_Mppt_toggled(bool checked)
-{
-    if(checked)
-    {
-        ui->Mppt->setIconSize(QSize(151,131));       //按下时放大icon大小
-        ui->Mppt->setIcon(setIconColor(ui->Mppt->icon(), QColor(130, 130, 130)));
-        ui->Mppt->setStyleSheet("QToolButton{background-color:transparent;color: rgb(130, 130, 130);}");
-    }
-    else
-    {
-        ui->Mppt->setIconSize(QSize(161,141));
-        ui->Mppt->setIcon(setIconColor(ui->Mppt->icon(), QColor(255, 255, 255)));
-        ui->Mppt->setStyleSheet("QToolButton{background-color:transparent;color: rgb(255, 255, 255);}");
-    }
-}
-
 
 void MainWindow::on_Current_toggled(bool checked)
 {
@@ -465,6 +660,34 @@ void MainWindow::on_Current_toggled(bool checked)
     }
 }
 
+
+void MainWindow::on_Mppt_toggled(bool checked)
+{
+    if(checked)
+    {
+        ui->Mppt->setIconSize(QSize(151,131));       //按下时icon大小
+        ui->Mppt->setIcon(setIconColor(ui->Mppt->icon(), QColor(130, 130, 130)));
+        ui->Mppt->setStyleSheet("QToolButton{background-color:transparent;color: rgb(130, 130, 130);}");
+        ui->SolarPower->setIconSize(QSize(151,131));       //按下时icon大小
+        ui->SolarPower->setIcon(setIconColor(ui->SolarPower->icon(), QColor(130, 130, 130)));
+        ui->SolarPower->setStyleSheet("QToolButton{background-color:transparent;color: rgb(130, 130, 130);}");
+        ui->Mpptlabel_30->setStyleSheet("background-color:rgb(130,130,130);)");
+        ui->Solarlabel_32->setStyleSheet("background-color: rgb(130, 130, 130);]");
+    }
+    else
+    {
+        ui->Mppt->setIconSize(QSize(161,141));
+        ui->Mppt->setIcon(setIconColor(ui->Mppt->icon(), QColor(255, 255, 255)));
+        ui->Mppt->setStyleSheet("QToolButton{background-color:transparent;color: rgb(255, 255, 255);}");
+        ui->SolarPower->setIconSize(QSize(161,141));
+        ui->SolarPower->setIcon(setIconColor(ui->SolarPower->icon(), QColor(255, 255, 255)));
+        ui->SolarPower->setStyleSheet("QToolButton{background-color:transparent;color: rgb(255, 255, 255);}");
+        ui->Mpptlabel_30->setStyleSheet("QLabel[color: rgb(255, 255, 255);]");
+        ui->Solarlabel_32->setStyleSheet("QLabel[color: rgb(255, 255, 255);]");
+    }
+}
+
+
 void MainWindow::on_SolarPower_toggled(bool checked)
 {
     if(checked)
@@ -472,12 +695,14 @@ void MainWindow::on_SolarPower_toggled(bool checked)
         ui->SolarPower->setIconSize(QSize(151,131));       //按下时放大icon大小
         ui->SolarPower->setIcon(setIconColor(ui->SolarPower->icon(), QColor(130, 130, 130)));
         ui->SolarPower->setStyleSheet("QToolButton{background-color:transparent;color: rgb(130, 130, 130);}");
+        ui->Solarlabel_32->setStyleSheet("QLabel[color: rgb(130, 130, 130);]");
     }
     else
     {
         ui->SolarPower->setIconSize(QSize(161,141));
         ui->SolarPower->setIcon(setIconColor(ui->SolarPower->icon(), QColor(255, 255, 255)));
         ui->SolarPower->setStyleSheet("QToolButton{background-color:transparent;color: rgb(255, 255, 255);}");
+        ui->Solarlabel_32->setStyleSheet("QLabel[color: rgb(255, 255, 255);]");
     }
 }
 

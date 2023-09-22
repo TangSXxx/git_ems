@@ -9,7 +9,7 @@ login2::login2(QWidget *parent) :
     ui->setupUi(this);
      this->setWindowTitle("登录界面");
     QPalette pal =this->palette();
-    pal.setBrush(QPalette::Background,QBrush(QPixmap(":/res/electric.jpg")));
+    pal.setBrush(QPalette::Background,QBrush(QPixmap(":/res/backtee.jpg")));
     setPalette(pal);
 }
 

@@ -16,7 +16,7 @@ login::login(QWidget *parent) :
 
 //        painter->drawPixmap(0,0,this->width(),this->height(),pic);
         QPalette pal =this->palette();
-        pal.setBrush(QPalette::Background,QBrush(QPixmap(":/res/electric.jpg")));
+        pal.setBrush(QPalette::Background,QBrush(QPixmap(":/res/backtee.jpg")));
         setPalette(pal);
 
 }

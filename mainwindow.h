@@ -74,6 +74,19 @@ private:
     CustomSqlQueryModel *FPControlQryMdl;//定义数据库模型，引入数据库中的数据
     CustomSqlQueryModel *CurrentWarnQryModel; //当前报警数据
     CustomSqlQueryModel *CurrentWarnQryModel2; //桌面当前报警数据
+    CustomSqlQueryModel *PCSWorkIndexModel;//PCS工作参数信息
+    CustomSqlQueryModel *BMSWorkIndexModel;//PCS保护参数信息
+    CustomSqlQueryModel *SPWorkAirConditionModel;//系统防护工作参数空调
+    CustomSqlQueryModel *SPWorkAirConditionModel1;//系统防护工作参数空调1
+    CustomSqlQueryModel *SPWorkThermoHygroMeterModel;//系统防护工作参数温湿度器
+    CustomSqlQueryModel *SPWorkPressureModuleModel;//系统防护工作参数均压模块
+    CustomSqlQueryModel *SPWorkGrid_sideMetersModel;//系统防护工作参数电网侧电表
+    CustomSqlQueryModel *STSIndexModel;//STS工作参数
+    CustomSqlQueryModel *STSIndex1Model;//STS功率参数
+    CustomSqlQueryModel *DCDCIndexModel;//DCDC功率参数
+    CustomSqlQueryModel *MPPTIndexModel;//MPPT功率参数
+    CustomSqlQueryModel *CurrentWarnModel;//当前警告
+    CustomSqlQueryModel *HistoryWarnModel;//历史警告
     QSqlDatabase DB;//定义数据库端口
 
     void openTable(); //打开数据库
