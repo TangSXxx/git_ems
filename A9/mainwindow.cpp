@@ -11,6 +11,8 @@
 #include<QLineEdit>
 #include<QIcon>
 #include<QPainter>
+#include "qcustomplot.h"
+#include <QtCharts>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,10 +20,15 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->BatteryExample->setPowerLevel(20);
+    addGraph();
+
+
 //    QPalette pal =this->palette();
 //    pal.setBrush(QPalette::Background,QBrush(QPixmap(":/res/mainback.jpg")));
 //    setPalette(pal);
 
+    qDebug()<<"sql"<<QSqlDatabase::drivers();
 
     //显示实时时间的函数
     timer = new QTimer(this);
@@ -30,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
         QDateTime datetime = QDateTime::currentDateTime();
         ui->Time->setText(datetime.toString("yyyy-MM-dd \n hh:mm:ss"));
         QFont ft;
-        ft.setPointSize(10);
+        ft.setPointSize(14);
         ui->Time->setFont(ft);
 
     });
@@ -160,10 +167,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     openTable();//打开数据库文件
 
-
-
-
-
 }
 
 MainWindow::~MainWindow()
@@ -175,8 +178,12 @@ MainWindow::~MainWindow()
 void MainWindow::openTable()
 {
     //打开数据库
-    DB = QSqlDatabase::addDatabase("QSQLITE"); //添加 SQL LITE数据库驱动
-    DB.setDatabaseName("demodb.db3"); //设置数据库名称
+    DB=QSqlDatabase::addDatabase("QMYSQL");
+    DB.setHostName("sh-cynosdbmysql-grp-k6nu8ws6.sql.tencentcdb.com");   //主机名称，如localhost
+    DB.setPort(23307);              //数据库端口号
+    DB.setDatabaseName("qttest");    //数据库名称
+    DB.setUserName("root");        //用户名称
+    DB.setPassword("Huangyan@");      //用户密码
 
     if (!DB.open())   //打开数据库
     {
@@ -562,6 +569,92 @@ QIcon MainWindow::setIconColor(QIcon icon, QColor color)
 
 
 }
+
+
+void MainWindow::on_horizontalSlider_valueChanged(int value)
+{
+    ui->BatteryExample->setPowerLevel(value);
+}
+
+void MainWindow::addGraph()
+{
+    //折线图
+    QCPGraph *lineGraph = ui->graph0->addGraph();
+    lineGraph->setData(QVector<double>{1, 2, 3, 4, 5}, QVector<double>{1, 2, 3, 4, 5});
+    ui->graph0->setBackground(QBrush(Qt::transparent));
+    lineGraph->setPen(QPen(Qt::white));
+    ui->graph0->xAxis->setTickLabelColor(Qt::white); // x 轴刻度数字颜色
+    ui->graph0->yAxis->setTickLabelColor(Qt::white); // y 轴刻度数字颜色 setBasePen
+    ui->graph0->xAxis->setBasePen(QPen(Qt::white)); // x 轴刻度数字颜色
+    ui->graph0->yAxis->setBasePen(QPen(Qt::white)); // y 轴刻度数字颜色 setBasePen
+
+
+    // 柱状图
+    QCPBars *barGraph = new QCPBars(ui->graph1->xAxis, ui->graph1->yAxis);
+    barGraph->setData(QVector<double>{1, 2, 3, 4, 5}, QVector<double>{1, 2, 25, 4, 5});
+
+
+       QPieSeries* series2 = new QPieSeries();                              // 创建一个圆环图对象
+       series2->setHoleSize(0.45);                                          // 设置圆环孔径大小0.0 ~1.0
+       series2->append("蛋白质占比 9.2%", 9.2);                              // 将具有指定值和标签的单个切片附加到series
+       series2->append("其它 23.8%", 100.8);
+       series2->append("碳水化合物 51.4%", 51.4);
+       QPieSlice* slice = series2->append("脂肪占比 15.6%", 15.6);           // 设置一个圆环切片，并返回这个切片对象
+       slice->setExploded();                                               // 将当前切片分离
+       slice->setLabelVisible();                                           // 显示当前切片的标签，默认是不显示的
+
+       ui->graph4->setRenderHint(QPainter::Antialiasing);               // 设置抗锯齿
+       ui->graph4->chart()->setTitle("圆环图标题");                       // 设置图表标题
+       ui->graph4->chart()->addSeries(series2);                          // 将创建的圆环对象添加进chart中
+       ui->graph4->chart()->setTheme(QChart::ChartThemeBlueCerulean);   // 设置图表的样式
+       ui->graph4->chart()->legend()->setAlignment(Qt::AlignBottom);    // 指定图例显示在图表底部
+       ui->graph4->chart()->legend()->setFont(QFont("Arial", 12));       // 设置图例的字体
+
+
+       int online = 60 ;
+          int offline = 40;
+          //显示已用设备数
+          ui->label->setText(QString::number(online));
+          QPieSeries *series = new QPieSeries();
+          series->setHoleSize(0.9);//饼图中间空心的大小
+          series->setPieSize(1);//饼图的大小
+          //开始和结束 3点为起始 6点为结束
+          series->setPieStartAngle(-90);
+          series->setPieEndAngle(90);
+
+          QPieSlice *slice0 = new QPieSlice();
+          slice0->setValue(online);
+          slice0->setColor(QColor(0,190,132));
+
+          QPieSlice *slice1 = new QPieSlice();
+          slice1->setValue(offline);
+          slice1->setColor(QColor(193, 193, 193));
+
+          series->append(slice0);
+          series->append(slice1);
+
+          QChart *chart = new QChart();
+          chart->legend()->hide();
+          //设置图形的最小宽高
+          chart->setMinimumWidth(400);
+          chart->setMinimumHeight(400);
+
+          chart->addSeries(series);
+
+          chart->createDefaultAxes();
+          chart->setAnimationOptions(QChart::AllAnimations); // 设置显示时的动画效果
+          ui->graph5->setChart(chart);
+          // 设置 QChartView 的背景为透明色
+
+             chart->setBackgroundBrush(Qt::transparent);
+
+
+
+
+
+}
+
+
 
 
 

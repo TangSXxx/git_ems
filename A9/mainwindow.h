@@ -6,6 +6,7 @@
 #include "qmybattery.h"
 #include <QtSql>
 #include <QDataWidgetMapper>
+#include <QtCharts>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -57,9 +58,13 @@ private slots:
 
     void on_UserManageButton_toggled(bool checked);
 
+    void addGraph();
 
 
 
+
+
+    void on_horizontalSlider_valueChanged(int value);
 
 private:
     Ui::MainWindow *ui;

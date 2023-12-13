@@ -1,8 +1,8 @@
-QT       += core gui sql
+QT       += core gui sql charts
 
 DESTDIR = $$PWD/bin #指定可执行程序目录
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++11
 
@@ -26,7 +26,9 @@ SOURCES += \
     customClass.cpp \
     mainwindow.cpp \
     qmybattery.cpp \
-    setup.cpp
+    setup.cpp \
+    qcustomplot.cpp
+
 
 HEADERS += \
     login.h \
@@ -34,13 +36,15 @@ HEADERS += \
     customClass.h \
     mainwindow.h \
     qmybattery.h \
-    setup.h
+    setup.h \
+    qcustomplot.h
 
 FORMS += \
     login.ui \
     login2.ui \
     mainwindow.ui \
-    setup.ui
+    setup.ui \
+
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
